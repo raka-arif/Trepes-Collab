@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset='utf-8'>
+    <title>Mortar Calculator</title>
+</head>
+<style media="screen">
+    body{
+        margin: 0;
+        padding: 0;
+        text-align: center;
+		font-family: sans-serif;
+		background-image: linear-gradient(135deg,#ff6b6b, #5f27cd);
+		min-height: 100vh;
+    }
+    div{
+        width: 500px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		background-color: #fff;
+		transform: translate(-50%, -50%);
+		padding: 20px;
+		border-radius: 10px;
+		box-shadow: 1px 1px 20px #ee5253;
+    }
+    h2{
+        font-size: 30px;
+		font-weight: 600;
+		margin-bottom: 1px;
+    }
+    .text{
+        text-align: left;
+		margin-left: 150px;
+    }
+    #text{
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+	}
+    #velocity, #degree{
+        color: #222f3e;
+		text-align: left;
+		font-size: 20px;
+		font-weight: 200;
+		outline: none;
+		border: none;
+		background: none;
+		border-bottom: 1px solid #341f97;
+		width: 200px;
+    }
+        #velocity:focus, #degree:focus{
+				border-bottom: 2px solid #341f97;
+				width: 300px;
+				transition: 0.5s;
+			}
+			#result{
+				color: #341f97;
+			}
+			#btn{
+				font-family: inherit;
+                font-size: 14px;
+				margin-top: 10px;
+				border: none;
+				color: #fff;
+				background-image: linear-gradient(135deg,#ff6b6b, #5f27cd);
+				width: 150px;
+				padding: 10px;
+				border-radius: 30px;
+				outline: none;
+				cursor: pointer;
+                text-decoration: none;
+                display: inline-block;
+			}
+			#btn:hover{
+				box-shadow: 1px 1px 10px #341f97;
+			}
+            #lol{
+                color: #fff;
+                font-family: inherit;
+                font-size: 14px;
+				margin-top: 10px;
+				border: none;
+				color: #fff;
+				background-image: linear-gradient(135deg,#6bff9c, #5f27cd);
+				width: 150px;
+				padding: 10px;
+				border-radius: 30px;
+				outline: none;
+				cursor: pointer;
+                text-decoration: none;
+                display: inline-block;
+            }
+		    #lol:hover{
+				box-shadow: 1px 1px 10px #341f97;
+			}
+            
+		
+</style>
+<script type="text/javascript">
+
+    function DISTANCE() {
+        function toRadians (angle) {
+            return angle * (Math.PI / 180);
+        }   
+        var velocity = document.getElementById('velocity').value;
+		var degree = document.getElementById('degree').value;
+		var distance = velocity**2 * Math.sin(toRadians(2 * degree))/(9.81);
+		var distanceA = (distance.toFixed(3));
+
+        document.getElementById("result").innerHTML="Your distance is " + distanceA + "m";
+    }
+</script>
+<body>
+    <div>
+        <h2>MORTAR CALCULATOR</h2>
+        <p id="text">(DISTANCE)</p>
+        <p class="text">Velocity (m/s)</p>
+        <input type="number" id="velocity">
+        <p class="text">Degree (°)</p>
+        <input type="number" id="degree">
+        <p id="result"></p>
+        <button id="btn" onclick="DISTANCE()">Calculate</button>
+        <a id="lol" href="main2.html" target="_self">Look for Degree</a>
+    </div>
+</body>
+</html>
